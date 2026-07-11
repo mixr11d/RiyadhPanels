@@ -204,7 +204,7 @@ body.promo-hidden nav {
   transform: translateY(-1px);
 }
 
-/* ===== DROPDOWN NAVIGATION (تنسيقات القائمة المنسدلة للخدمات) ===== */
+/* ===== DROPDOWN NAVIGATION (المنسدل عند النقر) ===== */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -224,7 +224,7 @@ body.promo-hidden nav {
   margin-top: 8px;
   list-style: none;
   padding: 8px 0;
-  right: 0; /* محاذاة لليمين بالتوافق مع اتجاه RTL */
+  right: 0;
 }
 
 .dropdown-content li {
@@ -246,7 +246,8 @@ body.promo-hidden nav {
   color: var(--gold) !important;
 }
 
-.dropdown:hover .dropdown-content {
+/* تفعيل الظهور المنسدل برمجياً عند الضغط */
+.dropdown.active .dropdown-content {
   display: block;
 }
 
