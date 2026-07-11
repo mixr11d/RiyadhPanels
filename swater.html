@@ -6,6 +6,31 @@
 <meta name="description" content="تركيب سواتر جدران وحوش وفلل بالرياض بكافة الأنواع الحديدية والخشبية والقماش ✓ اتصل الآن 0508930525">
 <title>تركيب سواتر جدران وحوش بالرياض 📞 0508930525</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* شبكة مخصصة لعرض صور السواتر كل صورتين بجانب بعضهما */
+  .images-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .images-two-col img {
+    border-radius: var(--r);
+    border: 1px solid var(--border);
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .images-two-col img:hover {
+    transform: scale(1.03);
+    border-color: var(--gold);
+  }
+  @media(max-width: 600px) {
+    .images-two-col {
+      grid-template-columns: 1fr; /* تترتب فوق بعضها في الجوال لسهولة التصفح */
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -15,7 +40,7 @@
   </a>
 </div>
 
-<!-- NAVBAR الموحد -->
+<!-- NAVBAR الموحد مع المنسدل الفعال بالضغط -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <div class="logo-icon">🏗️</div>
@@ -56,7 +81,7 @@
 <section class="hero" style="min-height: 60vh; padding-top: 10rem;">
   <div class="container">
     <div class="hero-content" style="max-width: 100%;">
-      <div class="hero-badge">خصوصية وحماية كاملة</div>
+      <div class="hero-badge">خصوصية وحماية كاملة لحوشك</div>
       <h1>تركيب سواتر جدران وفلل بالرياض</h1>
       <p class="hero-desc">تركيب سواتر حديد مجدول، شرائح، سواتر خشبية وقماش لحجب الرؤية وتأمين حوش المنزل والفلل بأشكال معاصرة ومقاومة للرياح الشديدة.</p>
     </div>
@@ -64,15 +89,28 @@
 </section>
 
 <section style="background: var(--dark2);">
-  <div class="container" style="max-width: 800px; text-align: center;">
-    <div class="sec-label">سواتر الرياض الحديثة</div>
-    <h2 class="sec-title">سواتر حديد وقماش متينة بأسعار منافسة</h2>
-    <p class="sec-desc" style="margin: 0 auto 2rem;">نقدم أرقى حلول السواتر لتغطية جدران الفلل والعمائر وحماية الخصوصية بالكامل بجميع أحياء الرياض.</p>
-    <a href="tel:0508930525" class="btn btn-gold">📞 اتصل بنا واحصل على معاينة فورية</a>
+  <div class="container">
+    <div class="sec-label">أعمال السواتر المنجزة</div>
+    <h2 class="sec-title">نماذج من تركيب السواتر والأسوار بالرياض</h2>
+    <p class="sec-desc">صور حقيقية لعمليات تركيب سواتر الفلل وجدران المنازل والعمائر</p>
+
+    <!-- شبكة الصور (صورتين بجانب بعضهما) مرتبة للملفات المرفوعة حديثاً -->
+    <div class="images-two-col reveal">
+      <img src="images/swater1.webp" alt="تركيب سواتر حديد مجدول بالرياض">
+      <img src="images/swater2.webp" alt="سواتر جدران الفلل والبيوت">
+      <img src="images/swater3.webp" alt="سواتر خشبية بلاستيكية مقومة للحرارة">
+      <img src="images/swater4.webp" alt="تركيب سواتر قماش وحوش">
+      <img src="images/swater5.webp" alt="سواتر حديد شرائح لحجب الرؤية">
+      <img src="images/swater6.webp" alt="أفضل اسعار تركيب السواتر بالرياض">
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="tel:0508930525" class="btn btn-gold">📞 اتصل بنا واحصل على معاينة فورية</a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER المقسم الموحد -->
+<!-- FOOTER المقسم الموحد لجميع الصفحات -->
 <footer>
   <div class="footer-inner">
     <a href="index.html" class="footer-logo">
@@ -124,6 +162,7 @@
   </div>
 </footer>
 
+<!-- الأيقونات العائمة المحدثة بالاتجاه الصحيح -->
 <div class="float-right">
   <a href="https://wa.me/966508930525" class="float-btn float-wa-btn">
     <span>💬</span>
