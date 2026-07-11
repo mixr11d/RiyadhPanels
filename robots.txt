@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mixr11d.github.io/RiyadhPanels/sitemap.xml
