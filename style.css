@@ -204,6 +204,52 @@ body.promo-hidden nav {
   transform: translateY(-1px);
 }
 
+/* ===== DROPDOWN NAVIGATION (تنسيقات القائمة المنسدلة للخدمات) ===== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(13, 12, 22, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 190px;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.6);
+  z-index: 1001;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 8px;
+  list-style: none;
+  padding: 8px 0;
+  right: 0; /* محاذاة لليمين بالتوافق مع اتجاه RTL */
+}
+
+.dropdown-content li {
+  display: block !important;
+  margin: 0 !important;
+}
+
+.dropdown-content a {
+  color: var(--text2) !important;
+  padding: 10px 15px !important;
+  display: block !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: rgba(201, 146, 42, 0.12) !important;
+  color: var(--gold) !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -894,7 +940,7 @@ section {
   flex-wrap: wrap;
 }
 
-/* ===== FOOTER (التذييل وحقوق التطوير) ===== */
+/* ===== FOOTER (التذييل المطور والمقسم إلى أعمدة متجاوبة) ===== */
 footer {
   background: var(--dark2);
   border-top: 1px solid var(--border);
@@ -907,7 +953,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.5rem;
   text-align: center;
 }
 
@@ -925,22 +971,39 @@ footer {
   font-size: .88rem;
 }
 
-.footer-links {
-  display: flex;
-  gap: 2rem;
+/* تنسيقات الأعمدة الجديدة في الفوتر */
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 1.5rem 0;
+  text-align: right;
+}
+
+.footer-col h3 {
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+  font-weight: 800;
+}
+
+.footer-col ul {
   list-style: none;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 0;
+  line-height: 2;
 }
 
-.footer-links a {
-  color: var(--muted);
-  font-size: .88rem;
-  font-weight: 600;
-  transition: color .25s;
+.footer-col ul li a {
+  color: var(--text2);
+  font-size: 0.88rem;
+  transition: color 0.2s;
 }
 
-.footer-links a:hover {
+.footer-col ul li a:hover {
   color: var(--gold);
 }
 
@@ -1176,7 +1239,7 @@ footer {
 @media(max-width: 768px) {
   /* تفعيل الأيقونات العائمة وثباتها في اليمين واليسار دون أي تداخل في الجوال */
   .float-right {
-    display: flex !important; /* إبقاء الأزرار العائمة مفعلة تتبعياً على الجوال */
+    display: flex !important;
     right: 1rem !important;
     left: auto !important;
     bottom: 1.5rem !important;
@@ -1235,7 +1298,12 @@ footer {
   
   /* الفوتر */
   .footer-info { flex-direction: column; gap: .75rem; align-items: flex-start; }
-  .footer-links { gap: 1rem; }
+  
+  /* جعل الأعمدة تترتب فوق بعضها في الهواتف بسلاسة */
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
   
   /* التعديل لأجهزة اللمس ومساحة النقر */
   .float-btn { width: 58px; height: 58px; font-size: 1.6rem; }
@@ -1262,7 +1330,6 @@ footer {
 
 /* مساحة لمس أزرار اللمس (التفاعلية) */
 .nav-links a { min-height: 44px; display: flex; align-items: center; padding: .25rem .1rem; }
-.footer-links a { min-height: 44px; display: flex; align-items: center; }
 .footer-info-item { min-height: 44px; }
 
 @media(hover: none) {
