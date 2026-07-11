@@ -995,10 +995,11 @@ footer {
   background: rgba(201, 146, 42, .05);
 }
 
-/* ===== FLOATING BUTTONS (الأزرار العائمة للشاشات الكبيرة) ===== */
+/* ===== FLOATING BTNs (أزرار الاتصال والواتساب العائمة - يمين دائماً) ===== */
 .float-right {
   position: fixed;
   right: 1.25rem;
+  left: auto; /* نضمن إلغاء أي تموضع يسار قديم */
   bottom: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -1055,9 +1056,11 @@ footer {
   opacity: 1;
 }
 
+/* ===== SCROLL TO TOP BTN (زر الصعود للأعلى - يسار دائماً) ===== */
 .scroll-top-btn {
   position: fixed;
   left: 1.25rem;
+  right: auto; /* نضمن إلغاء أي تموضع يمين قديم */
   bottom: 1.75rem;
   width: 48px;
   height: 48px;
@@ -1169,6 +1172,32 @@ footer {
   .gi1, .gi2, .gi3, .gi4, .gi5 { grid-column: unset; grid-row: unset; }
 }
 
+/* ── Mobile & Tablet Adjustments (الجوال والتابلت) ── */
+@media(max-width: 768px) {
+  /* تفعيل الأيقونات العائمة وثباتها في اليمين واليسار دون أي تداخل في الجوال */
+  .float-right {
+    display: flex !important; /* إبقاء الأزرار العائمة مفعلة تتبعياً على الجوال */
+    right: 1rem !important;
+    left: auto !important;
+    bottom: 1.5rem !important;
+  }
+  
+  .scroll-top-btn {
+    display: flex !important;
+    left: 1rem !important;
+    right: auto !important;
+    bottom: 1.5rem !important;
+  }
+  
+  /* تعطيل الشريط الممتد العريض لتجنب حجب الأزرار التتبعية الثابتة */
+  .mob-cta {
+    display: none !important; 
+  }
+  body {
+    padding-bottom: 0px !important; /* إلغاء المساحة السفلية للشريط */
+  }
+}
+
 /* ── Mobile (600px) ── */
 @media(max-width: 600px) {
   section { padding: 3.5rem 1.1rem; }
@@ -1247,47 +1276,6 @@ footer {
 @media(hover: none) {
   .svc-card:hover { transform: none; }
   .btn-gold:hover, .btn-wa:hover { transform: none; }
-}
-
-/* ===== MOBILE STICKY CTA BAR (شريط الموبايل السفلي الثابت) ===== */
-.mob-cta {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 980;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--dark2);
-  border-top: 2px solid rgba(201, 146, 42, .35);
-  padding: .55rem .75rem;
-  gap: .55rem;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, .4);
-}
-
-.mob-cta a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .45rem;
-  padding: .65rem .5rem;
-  border-radius: 10px;
-  font-size: .92rem;
-  font-weight: 800;
-  font-family: 'Cairo', system-ui, sans-serif;
-}
-
-.mob-cta .mc-call { background: var(--gold); color: #000; }
-.mob-cta .mc-wa { background: #25D366; color: #fff; }
-
-@media(max-width: 768px) {
-  .float-right { display: none; }
-  body { padding-bottom: 70px; }
-}
-
-@media(min-width: 769px) {
-  .mob-cta { display: none !important; }
 }
 
 /* خفض الحركات للأجهزة المهيئة لتوفير الحركة (Accessibility) */
