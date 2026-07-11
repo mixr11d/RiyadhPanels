@@ -39,6 +39,7 @@
   </a>
 </div>
 
+<!-- NAVBAR الموحد -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <div class="logo-icon">🏗️</div>
@@ -46,12 +47,35 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">الرئيسية</a></li>
-    <li><a href="umbrellas.html">مظلات</a></li>
-    <li><a href="swater.html">سواتر</a></li>
+    
+    <li class="dropdown">
+      <a href="#" class="dropbtn" style="cursor: pointer;">خدماتنا ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="umbrellas.html">تركيب المظلات</a></li>
+        <li><a href="sandwich-panel.html">ساندوتش بانل</a></li>
+        <li><a href="swater.html">تركيب السواتر</a></li>
+      </ul>
+    </li>
+
     <li><a href="about-us.html">من نحن</a></li>
-    <li><a href="contact-us.html">تواصل معنا</a></li>
+    <li><a href="faq.html">الأسئلة الشائعة</a></li>
+    <li><a href="contact-us.html" class="nav-cta">اتصل الآن</a></li>
   </ul>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">الرئيسية</a>
+  <a href="umbrellas.html" onclick="closeMenu()">تركيب المظلات</a>
+  <a href="sandwich-panel.html" onclick="closeMenu()">ساندوتش بانل</a>
+  <a href="swater.html" onclick="closeMenu()">تركيب السواتر</a>
+  <a href="about-us.html" onclick="closeMenu()">من نحن</a>
+  <a href="faq.html" onclick="closeMenu()">الأسئلة الشائعة</a>
+  <a href="tel:0508930525" onclick="closeMenu()" class="btn btn-gold">📞 اتصل الآن</a>
+  <a href="https://wa.me/966508930525" onclick="closeMenu()" class="btn btn-wa">💬 واتساب</a>
+</div>
 
 <section class="hero" style="min-height: 60vh; padding-top: 10rem;">
   <div class="container">
@@ -69,7 +93,7 @@
     <h2 class="sec-title">نماذج من بناء غرف وأسقف البانل بالرياض</h2>
     <p class="sec-desc">صور حقيقية لعمليات عزل وبناء حوائط وأسقف الساندوتش بانل</p>
 
-    <!-- شبكة الصور (صورتين بجانب بعضهما) -->
+    <!-- شبكة صور الساندوتش بانل المحددة كل صورتين بجانب بعضهما -->
     <div class="images-two-col reveal">
       <img src="images/sandwich1.webp" alt="غرف ساندوتش بانل معزولة">
       <img src="images/sandwich2.webp" alt="تركيب سقف ساندوتش بانل">
@@ -85,18 +109,70 @@
   </div>
 </section>
 
+<!-- FOOTER المقسم الموحد -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-tagline">أفضل أسعار تركيب الساندوتش بانل المعزول بالرياض</div>
-    <div class="footer-copy">جميع الحقوق محفوظة © 2026 — محترف المظلات والساندوتش بانل</div>
-    <a href="tel:0578539687" class="footer-dev">⚡ تطوير مواقع وإعلانات الرعد التقني</a>
+    <a href="index.html" class="footer-logo">
+      <div class="logo-icon" style="width:34px;height:34px;font-size:.9rem">🏗️</div>
+      <span>المظلات والساندوتش بانل</span>
+    </a>
+    <p class="footer-tagline">مختصون في تفصيل وتركيب المظلات والسواتر وبناء غرف وملاحق الساندوتش بانل العازل بالرياض</p>
+    
+    <div class="footer-neighborhoods" style="margin: 1rem 0; font-size: 0.82rem; color: var(--text2); max-width: 800px; line-height: 1.8;">
+      <strong>📍 نخدم جميع أحياء الرياض بامتياز وسرعة، وخاصة:</strong><br>
+      <span>• شمال الرياض (الملقا، الياسمين، النرجس، العارض، القيروان، الصحافة)<br>
+      • شرق الرياض (الرمال، المونسية، القادسية)<br>
+      • غرب الرياض (طويق، ضاحية لبن) وباقي مناطق العاصمة</span>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h3>روابط تهمك</h3>
+        <ul>
+          <li><a href="sandwich-panel.html">صفحة الساندوتش بانل</a></li>
+          <li><a href="umbrellas.html">صفحة المظلات</a></li>
+          <li><a href="swater.html">صفحة السواتر</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="about-us.html">من نحن</a></li>
+          <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
+          <li><a href="warranty.html">صفحة الضمان</a></li>
+          <li><a href="contact-us.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-info" style="margin-top: 0.5rem;">
+      <div class="footer-info-item"><span>📍</span> الرياض، المملكة العربية السعودية</div>
+      <div class="footer-info-item"><span>📞</span> 0508930525</div>
+      <div class="footer-info-item"><span>💬</span> wa.me/966508930525</div>
+    </div>
+
+    <div class="footer-copy" style="margin-top: 1.5rem; border-top: 1px solid rgba(201,146,42,0.1); width: 100%; padding-top: 1rem;">جميع الحقوق محفوظة © 2026 — محترف المظلات والساندوتش بانل بالرياض</div>
+    
+    <a href="tel:0578539687" class="footer-dev">
+      ⚡ تطوير مواقع وإعلانات الرعد التقني
+    </a>
   </div>
 </footer>
 
-<div class="mob-cta">
-  <a href="tel:0508930525" class="mc-call">📞 اتصل الآن</a>
-  <a href="https://wa.me/966508930525" class="mc-wa">💬 واتساب</a>
+<div class="float-right">
+  <a href="https://wa.me/966508930525" class="float-btn float-wa-btn">
+    <span>💬</span>
+    <span class="float-tooltip">تواصل واتساب</span>
+  </a>
+  <a href="tel:0508930525" class="float-btn float-call-btn">
+    <span>📞</span>
+    <span class="float-tooltip">اتصل الحين</span>
+  </a>
 </div>
+
+<a href="#" class="scroll-top-btn" id="scrollBtn">↑</a>
 
 <script src="script.js"></script>
 </body>
