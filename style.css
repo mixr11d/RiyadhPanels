@@ -47,7 +47,7 @@ img {
   width: 100%;
 }
 
-/* ===== PROMO BANNER ===== */
+/* ===== PROMO BANNER (تم تصغيره وتعديل حجم خطه وحوافه لعدم التداخل) ===== */
 .promo-bar {
   position: fixed;
   top: 0;
@@ -58,15 +58,15 @@ img {
   overflow: hidden;
   color: #000;
   text-align: center;
-  padding: .22rem .75rem;
-  font-size: .76rem;
+  padding: .15rem .5rem; /* تقليص الحواف العلوية والسفلية */
+  font-size: .72rem; /* تصغير الخط العام */
   font-weight: 800;
   letter-spacing: .03em;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: .5rem;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .promo-bar::before {
@@ -125,10 +125,10 @@ img {
   50% { transform: scale(1.2); }
 }
 
-/* ===== NAV (القائمة العلوية) ===== */
+/* ===== NAV (القائمة العلوية - تم تقليل المسافة العلوية لتتناسب مع شريط الخصم المحدث) ===== */
 nav {
   position: fixed;
-  top: 28px;
+  top: 22px; /* تم تعديله من 28px لينزل أسفل شريط الخصم الصغير مباشرة */
   left: 0;
   right: 0;
   z-index: 999;
@@ -148,7 +148,7 @@ nav.scrolled {
 }
 
 body.promo-hidden nav {
-  top: 0;
+  top: 0 !important;
 }
 
 .nav-logo {
@@ -1250,7 +1250,7 @@ footer {
   .gi1, .gi2, .gi3, .gi4, .gi5 { grid-column: unset; grid-row: unset; }
 }
 
-/* ── Mobile & Tablet Adjustments (الجوال والتابلت) ── */
+/* ── Mobile & Tablet Adjustments (الجوال والتابلت مع تعديل وتصغير تموضع شريط الخصم المحدث لعدم التداخل) ── */
 @media(max-width: 768px) {
   /* تفعيل الأيقونات العائمة وثباتها في اليمين واليسار دون أي تداخل في الجوال */
   .float-right {
@@ -1280,10 +1280,17 @@ footer {
 @media(max-width: 600px) {
   section { padding: 3.5rem 1.1rem; }
   
-  /* شريط الموبايل */
-  .promo-bar { font-size: 0.7rem; }
+  /* تعديل وتصغير شريط الخصم ليكون فائق الحجم ومناسباً للطباعة دون حجب اللوجو */
+  .promo-bar { 
+    font-size: 0.65rem !important; 
+    padding: .12rem .3rem !important;
+  }
   
-  nav { padding: .6rem 1rem; }
+  /* تنزيل الهيدر بدقة فائقة وبالمسافة الدقيقة المتناسقة مع الشريط الجديد */
+  nav { 
+    top: 18px !important; 
+    padding: .6rem 1rem; 
+  }
   
   /* Hero */
   .hero { padding: 7.5rem 1.1rem 3rem; }
