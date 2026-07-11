@@ -43,7 +43,7 @@
   <button class="promo-close" onclick="closePromo()" title="إغلاق">✕</button>
 </div>
 
-<!-- ====== NAVBAR (القائمة العلوية مع القائمة المنسدلة للخدمات) ====== -->
+<!-- ====== NAVBAR (القائمة العلوية مع المنسدل الجديد بالضغط) ====== -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <div class="logo-icon">🏗️</div>
@@ -52,9 +52,9 @@
   <ul class="nav-links">
     <li><a href="index.html">الرئيسية</a></li>
     
-    <!-- القائمة المنسدلة للخدمات المنفصلة -->
+    <!-- القائمة المنسدلة للخدمات تعمل بالضغط حصراً -->
     <li class="dropdown">
-      <a href="#" class="dropbtn">خدماتنا ▾</a>
+      <a href="#" class="dropbtn" style="cursor: pointer;">خدماتنا ▾</a>
       <ul class="dropdown-content">
         <li><a href="umbrellas.html">تركيب المظلات</a></li>
         <li><a href="sandwich-panel.html">ساندوتش بانل</a></li>
@@ -381,7 +381,7 @@
   <div class="container">
     <div class="cta-inner">
       <div class="sec-label" style="justify-content:center">تواصل سريع</div>
-      <h2>جاهز لتركيب مظلتك أو<br>بناء غرف <span class="gold-text">ساندوتش بانل معزولة؟</span></h2>
+      <h2>جاهز لتركيب مظلتك أو<br>بناء غرف <span class="gold-text">ساندوتش بانل معزولة?</span></h2>
       <p>احصل على أفضل عرض سعر اليوم بالرياض مع فني مختص، تواصل معنا الحين فوراً!</p>
       <div class="phone-big">📞 0508930525</div>
       <div class="cta-btns">
@@ -396,7 +396,7 @@
   </div>
 </section>
 
-<!-- ====== FOOTER (التذييل المطور والمقسم إلى أعمدة روابط تهمك وروابط سريعة) ====== -->
+<!-- ====== FOOTER (التذييل المقسم الجديد) ====== -->
 <footer>
   <div class="footer-inner">
     <a href="index.html" class="footer-logo">
@@ -405,7 +405,6 @@
     </a>
     <p class="footer-tagline">مختصون في تفصيل وتركيب المظلات والسواتر وبناء غرف وملاحق الساندوتش بانل العازل بالرياض</p>
     
-    <!-- قسم أحياء الرياض المستهدفة لزيادة ثقة الزائر -->
     <div class="footer-neighborhoods" style="margin: 1rem 0; font-size: 0.82rem; color: var(--text2); max-width: 800px; line-height: 1.8;">
       <strong>📍 نخدم جميع أحياء الرياض بامتياز وسرعة، وخاصة:</strong><br>
       <span>• شمال الرياض (الملقا، الياسمين، النرجس، العارض، القيروان، الصحافة)<br>
@@ -413,9 +412,8 @@
       • غرب الرياض (طويق، ضاحية لبن) وباقي مناطق العاصمة</span>
     </div>
 
-    <!-- تقسيم الروابط إلى عمودين منسقين على الشاشات الكبيرة والموبايل -->
+    <!-- تقسيم الروابط بالتوافق مع طلبك -->
     <div class="footer-columns">
-      <!-- العمود الأول: روابط تهمك -->
       <div class="footer-col">
         <h3>روابط تهمك</h3>
         <ul>
@@ -425,7 +423,6 @@
         </ul>
       </div>
       
-      <!-- العمود الثاني: روابط سريعة -->
       <div class="footer-col">
         <h3>روابط سريعة</h3>
         <ul>
@@ -446,14 +443,13 @@
 
     <div class="footer-copy" style="margin-top: 1.5rem; border-top: 1px solid rgba(201,146,42,0.1); width: 100%; padding-top: 1rem;">جميع الحقوق محفوظة © 2026 — محترف المظلات والساندوتش بانل بالرياض</div>
     
-    <!-- كود المطور المستثنى من تتبع إعلاناتك -->
     <a href="tel:0578539687" class="footer-dev">
       ⚡ تطوير مواقع وإعلانات الرعد التقني
     </a>
   </div>
 </footer>
 
-<!-- أزرار الهواتف العائمة على الشاشات الكبيرة والجوال -->
+<!-- أزرار الهواتف العائمة الثابتة بالاتجاهات المطلوبة (اليمين للاتصال والواتس واليسار للصعود) -->
 <div class="float-right">
   <a href="https://wa.me/966508930525" class="float-btn float-wa-btn">
     <span>💬</span>
@@ -465,8 +461,8 @@
   </a>
 </div>
 
-<!-- زر الصعود للأعلى -->
-<a href="#home" class="scroll-top-btn" id="scrollBtn">↑</a>
+<!-- زر الصعود للأعلى (يسار دائماً) -->
+<a href="#" class="scroll-top-btn" id="scrollBtn">↑</a>
 
 <script src="script.js"></script>
 </body>
