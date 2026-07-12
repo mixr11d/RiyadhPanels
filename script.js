@@ -52,7 +52,7 @@ document.addEventListener('click', function(e) {
   }
   
   if ((href.includes('wa.me') || href.includes('whatsapp')) && href.includes('0508930525')) {
-    trackGoogleConversion(WA_LABEL, 40.0);
+    trackGoogleConversion(WA_LABEL, 45.0);
   }
 }, true);
 
