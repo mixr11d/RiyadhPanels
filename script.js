@@ -6,8 +6,8 @@
 const G_ID = 'AW-18128423919'; 
 
 // ضع تسميات التحويل (Conversion Labels) الخاصة بحسابك هنا بين علامتي الاقتباس:
-const CALL_LABEL = 'KEr3CMyon6wcEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار الاتصال الهاتفي
-const WA_LABEL   = 'GVBjCJmun6wcEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار تواصل واتساب المباشرة
+const CALL_LABEL = 'I6DECKKErc8cEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار الاتصال الهاتفي
+const WA_LABEL   = 'fAtpCMjkr88cEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار تواصل واتساب المباشرة
 const FORM_LABEL = 'zzIbCOX-hs8cEO-Xp8RD'; // ملصق التحويل عند ملء نموذج المعاينة وإرساله بنجاح
 
 
