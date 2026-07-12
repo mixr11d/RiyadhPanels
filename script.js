@@ -2,33 +2,37 @@
 //  1. إعدادات تتبع إعلانات جوجل (Google Ads Tracking Settings)
 // =================================================================
 
-// ضع معرف إعلانات جوجل الخاص بك هنا بين علامتي الاقتباس (مثال: 'AW-17945698650')
+// معرّف الحساب الإعلاني الموحد لجميع الصفحات
 const G_ID = 'AW-18128423919'; 
 
-// ضع تسميات التحويل (Conversion Labels) الخاصة بحسابك هنا بين علامتي الاقتباس:
-const CALL_LABEL = 'I6DECKKErc8cEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار الاتصال الهاتفي
-const WA_LABEL   = 'fAtpCMjkr88cEO-Xp8RD'; // ملصق التحويل عند النقر على أزرار تواصل واتساب المباشرة
-const FORM_LABEL = 'zzIbCOX-hs8cEO-Xp8RD'; // ملصق التحويل عند ملء نموذج المعاينة وإرساله بنجاح
+// تسميات التحويل الخاصة بك (الرموز فقط بعد الشرطة المائلة /)
+const CALL_LABEL = 'I6DECKKErc8cEO-Xp8RD'; // ملصق النقر على أزرار الاتصال الهاتفي
+const WA_LABEL   = 'fAtpCMjkr88cEO-Xp8RD'; // ملصق النقر على أزرار تواصل واتساب
+const FORM_LABEL = 'zzIbCOX-hs8cEO-Xp8RD'; // ملصق النقر لإرسال نموذج المعاينة والواتساب
 
 
 // =================================================================
 //  2. تحميل وتهيئة كود جوجل تلقائياً لجميع الصفحات (Dynamic Init)
 // =================================================================
 if (G_ID) {
+  // إنشاء عنصر السكربت وتحميل مكتبة جوجل الخارجية ديناميكياً
   const gTagScript = document.createElement('script');
   gTagScript.async = true;
   gTagScript.src = `https://www.googletagmanager.com/gtag/js?id=${G_ID}`;
   document.head.appendChild(gTagScript);
 
+  // تهيئة dataLayer و دالة gtag برمجياً
   window.dataLayer = window.dataLayer || [];
   window.gtag = function() {
     window.dataLayer.push(arguments);
   };
   
+  // تشغيل التهيئة الأساسية للتحليلات
   gtag('js', new Date());
   gtag('config', G_ID);
 }
 
+// دالة إرسال أحداث التحويل التلقائية
 function trackGoogleConversion(label, value = 1.0, currency = 'SAR') {
   if (typeof gtag === 'function' && G_ID && label) {
     gtag('event', 'conversion', {
@@ -47,11 +51,16 @@ document.addEventListener('click', function(e) {
   if (!anchor) return;
   const href = anchor.getAttribute('href') || '';
   
-  if (href.startsWith('tel:') && href.includes('0508930525')) {
+  // نستخدم الجزء المشترك من الرقم فقط (508930525) لضمان صحة الفحص في كل الصيغ المحلية والدولية
+  const targetNumber = '508930525';
+  
+  // تتبع الاتصال الهاتفي للرقم الإعلاني فقط واستبعاد رقم المطور
+  if (href.startsWith('tel:') && href.includes(targetNumber)) {
     trackGoogleConversion(CALL_LABEL, 50.0);
   }
   
-  if ((href.includes('wa.me') || href.includes('whatsapp')) && href.includes('0508930525')) {
+  // تتبع نقرات الواتساب المتجهة للرقم الإعلاني فقط بالصيغة الدولية أو المحلية
+  if ((href.includes('wa.me') || href.includes('whatsapp')) && href.includes(targetNumber)) {
     trackGoogleConversion(WA_LABEL, 45.0);
   }
 }, true);
@@ -63,36 +72,41 @@ document.addEventListener('submit', function(e) {
   const leadForm = e.target.closest('#leadForm');
   if (!leadForm) return;
   
-  e.preventDefault();
+  e.preventDefault(); // منع الإرسال الافتراضي وإعادة تحميل الصفحة
   
+  // سحب البيانات من الحقول المدخلة
   const name = document.getElementById('clientName').value.trim();
   const phone = document.getElementById('clientPhone').value.trim();
   const district = document.getElementById('clientDistrict').value.trim();
   const service = document.getElementById('serviceType').value;
   
+  // أرسل إشارة التحويل لجوجل أولاً
   trackGoogleConversion(FORM_LABEL, 60.0);
   
+  // صياغة الرسالة المنسقة التي ستصلك على الواتساب
   const message = `مرحباً، أود طلب معاينة مجانية وتسعير من خلال الموقع الإلكتروني:\n\n` +
                   `👤 *الاسم الكريم:* ${name}\n` +
                   `📱 *رقم الجوال:* ${phone}\n` +
                   `📍 *الحي بالرياض:* ${district}\n` +
                   `🏗️ *الخدمة المطلوبة:* ${service}`;
   
+  // إنشاء رابط التوجيه المباشر لواتساب العميل برقمك
   const whatsappUrl = `https://wa.me/966508930525?text=${encodeURIComponent(message)}`;
   
+  // تأخير التوجيه بـ 300 مللي ثانية للتأكد من اكتمال إرسال طلب جوجل الإعلاني
   setTimeout(() => {
     window.location.href = whatsappUrl;
   }, 300);
 });
 
 // =================================================================
-//  5. التفاعل البرمجي (القائمة المنسدلة، شريط الإعلانات، التمرير)
+//  5. العناصر التفاعلية (القائمة، شريط الإعلانات، حركات التمرير)
 // =================================================================
 (function() {
   const nav = document.getElementById('nav');
   const scrollBtn = document.getElementById('scrollBtn');
 
-  // رصد التمرير لتغيير شكل الهيدر وإظهار زر الصعود للأعلى
+  // تحويل شكل الهيدر وإظهار زر الصعود للأعلى عند التمرير
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (nav) {
@@ -135,7 +149,7 @@ document.addEventListener('submit', function(e) {
   document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => io.observe(el));
 })();
 
-// إغلاق شريط الإعلانات الترويجي العلوي
+// إغلاق شريط الإعلانات الترويجي بالعلوي
 function closePromo() {
   const promoBar = document.getElementById('promoBar');
   const nav = document.getElementById('nav');
