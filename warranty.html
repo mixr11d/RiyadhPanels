@@ -9,6 +9,18 @@
 </head>
 <body>
 
+<!-- شريط الإعلان العلوي -->
+<div class="promo-bar" id="promoBar">
+  <a href="tel:0508930525">
+    <span class="pulse">🎉</span>
+    <span>خصم خاص للمتصلين الجدد بالرياض — اتصل الآن واحصل على معاينة مجانية وسعر مناسب!</span>
+    <span>📞 0508930525</span>
+    <span class="pulse">🎉</span>
+  </a>
+  <button class="promo-close" onclick="closePromo()" title="إغلاق">✕</button>
+</div>
+
+<!-- NAVBAR الموحد (تمت إضافة زر الهامبرغر هنا) -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <div class="logo-icon">🏗️</div>
@@ -17,7 +29,7 @@
   <ul class="nav-links">
     <li><a href="index.html">الرئيسية</a></li>
     <li class="dropdown">
-      <a href="#" class="dropbtn">خدماتنا ▾</a>
+      <a href="#" class="dropbtn" style="cursor: pointer;">خدماتنا ▾</a>
       <ul class="dropdown-content">
         <li><a href="umbrellas.html">تركيب المظلات</a></li>
         <li><a href="sandwich-panel.html">ساندوتش بانل</a></li>
@@ -28,7 +40,23 @@
     <li><a href="faq.html">الأسئلة الشائعة</a></li>
     <li><a href="contact-us.html" class="nav-cta">اتصل الآن</a></li>
   </ul>
+  <!-- زر القائمة الجانبية للجوال -->
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- القائمة الجانبية للجوال (تمت إضافتها هنا) -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">الرئيسية</a>
+  <a href="umbrellas.html" onclick="closeMenu()">تركيب المظلات</a>
+  <a href="sandwich-panel.html" onclick="closeMenu()">ساندوتش بانل</a>
+  <a href="swater.html" onclick="closeMenu()">تركيب السواتر</a>
+  <a href="about-us.html" onclick="closeMenu()">من نحن</a>
+  <a href="faq.html" onclick="closeMenu()">الأسئلة الشائعة</a>
+  <a href="tel:0508930525" onclick="closeMenu()" class="btn btn-gold">📞 اتصل الآن</a>
+  <a href="https://wa.me/966508930525" onclick="closeMenu()" class="btn btn-wa">💬 واتساب</a>
+</div>
 
 <section class="hero" style="min-height: 50vh; padding-top: 10rem;">
   <div class="container" style="max-width: 800px; text-align: center;">
@@ -79,8 +107,6 @@
       • غرب الرياض (طويق، ضاحية لبن) وباقي مناطق العاصمة</span>
     </div>
 
-    <div class="dropdown" style="display: none;"></div> <!-- مجرد عنصر وهمي للحفاظ على السكربت -->
-
     <div class="footer-columns">
       <div class="footer-col">
         <h3>روابط تهمك</h3>
@@ -128,7 +154,7 @@
   </a>
 </div>
 
-<a href="#home" class="scroll-top-btn" id="scrollBtn">↑</a>
+<a href="#" class="scroll-top-btn" id="scrollBtn">↑</a>
 
 <script src="script.js"></script>
 </body>
